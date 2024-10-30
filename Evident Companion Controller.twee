@@ -1,0 +1,200 @@
+:: StoryTitle
+Evident Companion Controller
+
+
+:: StoryData
+{
+  "ifid": "7177D979-BFA8-4264-91DC-4F3F56F3689C",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "Intern Landing",
+  "zoom": 1
+}
+
+
+:: Intern Assign {"position":"900,475","size":"100,100"}
+(align:"=><=")+(box:"=XXXXXXXXXXXXXXXXXX=")[=<br><img src="https://i.ibb.co/2K9HSPY/Evident-Logo.png" style="display: block; margin-left: auto; margin-right: auto; width: 40%;">
+(after: 2s) [Welcome to EVIDENT™, Intern #$internNumber.]
+
+(after: 3s) [Congratulations! You have been offered a special assignment!]
+
+
+
+
+(after: 4s) [EVIDENT™ runs on a strict quota-based system to measure success, and it would appear that users have not been fulfilling the appropriate "alphabet" quotas as of late.]
+
+
+(after: 6s) [Your job will be to fulfill 10 of these "alphabet" quotas, meaning you'll need to log as much evidence with the EVIDENT™ Quartermaster as it takes to fulfill them.]
+
+
+(after: 8s) [In order to fulfill a "B" quota for instance, simply log a piece of evidence that contains the letter B in the name.]
+
+
+
+
+(after: 10s) [[[[[Accept Assignment|Intern Setting]]]]]
+
+
+:: Intern Check Reveal {"position":"1025,350","size":"100,100"}
+(align:"=><=")+(box:"XXXX=")[=<br><img src="https://i.ibb.co/2K9HSPY/Evident-Logo.png" style="display: block; margin-left: auto; margin-right: auto; width: 40%;">
+(after: 2s) [You logged a piece of evidence entitled:]
+
+(after: 3s) [$evidenceCheck]
+
+(set: $letterRemaining to $letterChoices's length)
+(after: 5s) [(if: $letterChoices's length is 0)[You have no more letters left to log. Yell at the Quartermaster that the game is over because you have won!] (else:) [You have $letterRemaining letters left to log.]]
+
+
+
+
+(after: 5s) [(if: $letterChoices's length is 0)[[[Restart|Intern Landing]]] (else:) [[[Continue|Intern Gameplay]]]]
+
+
+:: Intern Checking {"position":"900,225","size":"100,100"}
+(set: $evidenceCheck to (uppercase: $evidenceCheck))
+
+(if: $evidenceCheck contains "A") [(set: $letterChoices to $letterChoices - (a: "A"))]
+
+(if: $evidenceCheck contains "B") [(set: $letterChoices to $letterChoices - (a: "B"))]
+
+(if: $evidenceCheck contains "C") [(set: $letterChoices to $letterChoices - (a: "C"))]
+
+(if: $evidenceCheck contains "D") [(set: $letterChoices to $letterChoices - (a: "D"))]
+
+(if: $evidenceCheck contains "E") [(set: $letterChoices to $letterChoices - (a: "E"))]
+
+(if: $evidenceCheck contains "F") [(set: $letterChoices to $letterChoices - (a: "F"))]
+
+(if: $evidenceCheck contains "G") [(set: $letterChoices to $letterChoices - (a: "G"))]
+
+(if: $evidenceCheck contains "H") [(set: $letterChoices to $letterChoices - (a: "H"))]
+
+(if: $evidenceCheck contains "I") [(set: $letterChoices to $letterChoices - (a: "I"))]
+
+(if: $evidenceCheck contains "J") [(set: $letterChoices to $letterChoices - (a: "J"))]
+
+(if: $evidenceCheck contains "K") [(set: $letterChoices to $letterChoices - (a: "K"))]
+
+(if: $evidenceCheck contains "L") [(set: $letterChoices to $letterChoices - (a: "L"))]
+
+(if: $evidenceCheck contains "M") [(set: $letterChoices to $letterChoices - (a: "M"))]
+
+(if: $evidenceCheck contains "N") [(set: $letterChoices to $letterChoices - (a: "N"))]
+
+(if: $evidenceCheck contains "O") [(set: $letterChoices to $letterChoices - (a: "O"))]
+
+(if: $evidenceCheck contains "P") [(set: $letterChoices to $letterChoices - (a: "P"))]
+
+(if: $evidenceCheck contains "Q") [(set: $letterChoices to $letterChoices - (a: "Q"))]
+
+(if: $evidenceCheck contains "R") [(set: $letterChoices to $letterChoices - (a: "R"))]
+
+(if: $evidenceCheck contains "S") [(set: $letterChoices to $letterChoices - (a: "S"))]
+
+(if: $evidenceCheck contains "T") [(set: $letterChoices to $letterChoices - (a: "T"))]
+
+(if: $evidenceCheck contains "U") [(set: $letterChoices to $letterChoices - (a: "U"))]
+
+(if: $evidenceCheck contains "V") [(set: $letterChoices to $letterChoices - (a: "V"))]
+
+(if: $evidenceCheck contains "W") [(set: $letterChoices to $letterChoices - (a: "W"))]
+
+(if: $evidenceCheck contains "X") [(set: $letterChoices to $letterChoices - (a: "X"))]
+
+(if: $evidenceCheck contains "Y") [(set: $letterChoices to $letterChoices - (a: "Y"))]
+
+(if: $evidenceCheck contains "Z") [(set: $letterChoices to $letterChoices - (a: "Z"))]
+
+(else:)[(goto:"Intern Check Reveal")]
+
+
+:: Intern Gameplay {"position":"900,100","size":"100,100"}
+(align:"=><=")+(box:"XXXX=")[=<br><img src="https://i.ibb.co/2K9HSPY/Evident-Logo.png" style="display: block; margin-left: auto; margin-right: auto; width: 40%;">
+(after: 2s) [Here are the letters you need to find:
+
+(set: $letterRemaining to $letterChoices's length) (print: (joined: " ", ...$letterChoices))]
+
+(after: 3s) [You have $letterRemaining letters left to log.]
+
+(after: 4s) [Whenever the EVIDENT™ Quartermaster announces the title of a new piece of evidence, type it below to check if it fulfills any of your quotas.
+
+
+(input: bind $evidenceCheck)
+
+
+[[[Log Evidence|Intern Checking]]]]
+
+
+:: Intern Landing {"position":"900,350","size":"100,100"}
+(align:"=><=")+(box:"=XXXXXXXXXXXXXXXXXX=")[=<br><img src="https://i.ibb.co/2K9HSPY/Evident-Logo.png" style="display: block; margin-left: auto; margin-right: auto; width: 40%;">
+(after: 2s) [Welcome to EVIDENT™, the premiere evidence organisation system for police operations around the country.]
+
+
+
+(after: 4s) [Please enter your password:
+
+(force-input:"***********************************************************************************")
+[[[[Submit|Intern Assign]]]]]
+
+(set: $internNumber to (random: 100, 999))
+
+
+:: Intern Setting {"position":"900,600","size":"100,100"}
+(set: $allLetters to (a: "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "R", "S", "T", "U", "W", "Y"))
+
+(set: $allLettersShuffled to (shuffled: ...$allLetters))
+
+(set: $letterChoices to (a:))
+
+(move: $allLettersShuffled's 1st into $letterChoices's 1st)
+(move: $allLettersShuffled's 2nd into $letterChoices's 2nd)
+(move: $allLettersShuffled's 3rd into $letterChoices's 3rd)
+(move: $allLettersShuffled's 4th into $letterChoices's 4th)
+(move: $allLettersShuffled's 5th into $letterChoices's 5th)
+(move: $allLettersShuffled's 6th into $letterChoices's 6th)
+(move: $allLettersShuffled's 7th into $letterChoices's 7th)
+(move: $allLettersShuffled's 8th into $letterChoices's 8th)
+(move: $allLettersShuffled's 9th into $letterChoices's 9th)
+(move: $allLettersShuffled's 10th into $letterChoices's 10th)
+
+(goto:"Intern Gameplay")
+
+
+:: StoryStylesheet [stylesheet]
+tw-sidebar {
+	display: none;
+}
+
+tw-sidebar .undo, tw-sidebar .redo {
+	display: none;
+}
+
+tw-story {
+  color: #F0F8FF;
+  background-color: #1E90FF;
+  font: 150% Arial,sans-serif;
+  background: rgb(0,28,135);
+  background: linear-gradient(180deg, rgba(0,28,135,1) 0%,
+  rgba(0,43,209,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+tw-link, .enchantment-link {
+  color: #001b8a;
+
+}
+
+
+tw-link:hover, .enchantment-link:hover {
+  color: #3b61ff;
+
+}
+
+.visited {
+  color: #001b8a;
+
+}
+
+.visited:hover {
+  color: #3b61ff;
+  
+}

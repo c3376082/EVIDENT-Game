@@ -1,0 +1,3 @@
+"Evident Main Game" is the main file. This is what the game primarily runs off of.
+
+"Evident Companion Controller" is the system that players will need on their own devices in order to control their own score.
